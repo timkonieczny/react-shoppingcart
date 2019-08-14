@@ -16,8 +16,8 @@ class ConnectedShoppingCartList extends Component {
             <div>
                 <h2>Shopping Cart</h2>
                 <ul>
-                    {this.props.shoppingCartItems.map(item => {
-                        return (<ShoppingCartListItem item={item} key={item.id} />)
+                    {this.props.shoppingCartItems.map((item, index) => {
+                        return (<ShoppingCartListItem item={item} key={index} />)
 
                     })}
                 </ul>

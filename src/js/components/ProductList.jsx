@@ -1,21 +1,14 @@
 import React, { Component } from "react"
 import ProductListItem from "./ProductListItem.jsx"
-import uuidv1 from "uuid"
+import { connect } from "react-redux"
 
-class ProductList extends Component {
+const mapStateToProps = state => {
+    return { products: state.products };
+}
+
+class ConnectedProductList extends Component {
     constructor() {
         super()
-
-        this.products = [
-            { name: "Sledgehammer", price: 125.75 },
-            { name: "Axe", price: 190.50 },
-            { name: "Bandsaw", price: 562.13 },
-            { name: "Chisel", price: 12.9 },
-            { name: "Hacksaw", price: 18.45 }
-        ]
-
-        this.products.forEach(product => { product.id = uuidv1(), product.quantity = 1 })
-
     }
 
     render() {
@@ -23,13 +16,15 @@ class ProductList extends Component {
             <div>
                 <h2>Products</h2>
                 <ul>
-                    {this.products.map((item) => {
-                        return (<ProductListItem item={item} key={item.id} />)
+                    {this.props.products.map((item, index) => {
+                        return (<ProductListItem item={item} key={index} />)
                     })}
                 </ul>
             </div>
         );
     }
 }
+
+const ProductList = connect(mapStateToProps)(ConnectedProductList)
 
 export default ProductList;
