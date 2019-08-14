@@ -12,7 +12,6 @@ const mapDispatchToProps = dispatch => {
 class ConnectedShoppingCartListItem extends Component {
     constructor() {
         super()
-
         this.handleClickRemove = this.handleClickRemove.bind(this)
     }
 
@@ -25,8 +24,9 @@ class ConnectedShoppingCartListItem extends Component {
         return (
             <li>
                 <p>{this.props.item.name}</p>
-                <p>{this.props.item.price}</p>
-                <a onClick={this.handleClickRemove}>remove from cart</a>
+                <p>{this.props.item.quantity}</p>
+                <p>${(this.props.item.price * this.props.item.quantity).toFixed(2)}</p>
+                <a onClick={this.handleClickRemove} href="#">remove from cart</a>
             </li>
 
         )

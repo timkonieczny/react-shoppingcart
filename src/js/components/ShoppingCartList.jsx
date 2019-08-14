@@ -12,15 +12,18 @@ class ConnectedShoppingCartList extends Component {
     }
 
     render() {
+        console.log(this.props.shoppingCartItems)
         return (
             <div>
                 <h2>Shopping Cart</h2>
                 <ul>
                     {this.props.shoppingCartItems.map((item, index) => {
                         return (<ShoppingCartListItem item={item} key={index} />)
-
                     })}
                 </ul>
+                <p>Total: ${this.props.shoppingCartItems.reduce((total, item) => {
+                    return total + (item.price * item.quantity)
+                }, 0).toFixed(2)}</p>
             </div>
 
         )

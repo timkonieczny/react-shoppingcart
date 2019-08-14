@@ -26,7 +26,7 @@ class ConnectedProductListItem extends Component {
             <li>
                 <p>{this.props.item.name}</p>
                 <p>{this.props.item.price}</p>
-                <a onClick={this.handleClickAdd}>add to cart</a>
+                <a onClick={this.handleClickAdd} href="#">add to cart</a>
             </li>
 
         )

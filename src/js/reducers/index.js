@@ -18,15 +18,18 @@ const rootReducer = (state = initialState, action) => {
                 const index = state.shoppingCartItems.map(item => item.name).indexOf(action.payload.name)
                 let newItem = action.payload
                 if (index !== -1) {
-                    newItem.quantity = state.shoppingCartItems[index].quantity+1
+                    const quantity = state.shoppingCartItems[index].quantity + 1
                     return Object.assign({}, state, {
                         shoppingCartItems: state.shoppingCartItems.map((item, i) => {
                             if (i === index)
-                                return newItem
+                                return {
+                                    ...item,
+                                    quantity: quantity
+                                }
                             return item
                         })
                     })
-                } else{
+                } else {
                     newItem.quantity = 1
                     return Object.assign({}, state, {
                         shoppingCartItems: state.shoppingCartItems.concat(newItem)
@@ -44,12 +47,14 @@ const rootReducer = (state = initialState, action) => {
                         ]
                     })
                 else {
-                    let newItem = action.payload
-                    newItem.quantity--
+                    const quantity = action.payload.quantity - 1
                     return Object.assign({}, state, {
                         shoppingCartItems: state.shoppingCartItems.map((item, i) => {
                             if (i === index)
-                                return newItem
+                                return {
+                                    ...item,
+                                    quantity: quantity
+                                }
                             return item
                         })
                     })
