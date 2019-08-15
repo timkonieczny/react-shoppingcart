@@ -13,7 +13,7 @@ class ConnectedProductList extends Component {
 
     render() {
         return (
-            <div>
+            <div id="products">
                 <h2>Products</h2>
                 <ul>
                     {this.props.products.map((item, index) => {

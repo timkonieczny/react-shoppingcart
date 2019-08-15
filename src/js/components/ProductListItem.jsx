@@ -25,7 +25,7 @@ class ConnectedProductListItem extends Component {
         return (
             <li>
                 <p>{this.props.item.name}</p>
-                <p>{this.props.item.price}</p>
+                <p className="price">${this.props.item.price.toFixed(2)}</p>
                 <a onClick={this.handleClickAdd} href="#">add to cart</a>
             </li>
 

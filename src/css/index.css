@@ -1,0 +1,57 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10%;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+li {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin: 1em 0
+}
+
+#products li * {
+    flex: 4;
+}
+
+#shopping-cart li a,
+#shopping-cart li p {
+    flex: 4;
+}
+
+#shopping-cart p.price,
+#shopping-cart p.quantity {
+    flex: 2;
+}
+
+#shopping-cart #total {
+    display: flex;
+    flex-direction: row;
+}
+
+#shopping-cart #total p {
+    flex: 8;
+    font-weight: bold;
+}
+
+#shopping-cart #total div {
+    flex: 4
+}
+
+.price {
+    text-align: right;
+}
+
+a {
+    text-align: right;
+}
+
+p {
+    margin: 0;
+}

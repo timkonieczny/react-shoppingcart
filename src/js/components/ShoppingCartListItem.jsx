@@ -24,8 +24,8 @@ class ConnectedShoppingCartListItem extends Component {
         return (
             <li>
                 <p>{this.props.item.name}</p>
-                <p>{this.props.item.quantity}</p>
-                <p>${(this.props.item.price * this.props.item.quantity).toFixed(2)}</p>
+                <p className="quantity">{this.props.item.quantity} x</p>
+                <p className="price">${(this.props.item.price * this.props.item.quantity).toFixed(2)}</p>
                 <a onClick={this.handleClickRemove} href="#">remove from cart</a>
             </li>
 
